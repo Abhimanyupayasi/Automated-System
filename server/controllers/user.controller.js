@@ -105,6 +105,9 @@ const login = async (req, res) => {
 
         //     userId: user._id.toString()
         // });
+        if(user.role === 'admin'){
+            return res.redirect(`/get?name=${encodeURIComponent(user.name)}&token=${encodeURIComponent(token)}`);
+        }
         return res.redirect(`/dashboard?name=${encodeURIComponent(user.name)}&token=${encodeURIComponent(token)}`);
     }
     catch (error) {

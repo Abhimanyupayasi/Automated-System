@@ -79,10 +79,18 @@ const createAppoint = async (req, res) => {
 const getAppoints = async (req, res) => {
     try {
         const appoints = await Appoint.find();
+        
+        
         res.status(200).json({
             result: 'success',
             appoints
+            
         });
+        // appoints.forEach(appoint => {
+        //     console.log(appoint);
+        //     res.render('appoints', { appoint });
+        // });
+        // res.render('appoints', { appoints });
     }
     catch (error) {
         res.status(500).json({

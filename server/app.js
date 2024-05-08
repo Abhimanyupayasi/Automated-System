@@ -110,6 +110,14 @@ app.get('/booked', (req, res) => {
 }
 );
 
+app.get('/get', isLoggedIn, (req, res) => {
+    
+    const name = req.query.name;
+    const token = req.query.token;
+    res.render('appoints',{ name, token });
+}
+);
+
 
 
 
